@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url("images/back.png");
+  background-size: cover;
+  background-position: contain;
+}
+.progress-steps {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+ul {
+  margin-top: 80px;
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  border-radius: 50%;
+  background-color: white;
+  margin: 0 25px;
+}
+
+.text {
+  margin-top: 25px;
+  font-weight: 600;
+  color: rgb(38, 82, 179);
+}
+
+ul li .progress {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #918e8e;
+  color: #fff;
+  margin: 14px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+ul li .progress .icon {
+  display: none;
+}
+
+.progress::after {
+  content: " ";
+  position: absolute;
+  background-color: #7e7e7e;
+  height: 5px;
+  width: 115px;
+  right: 28px;
+  z-index: -1;
+}
+
+.one::after {
+  width: 0;
+  height: 0;
+}
+
+ul li .active {
+  background-color: blue;
+}
+
+ul li .active::after {
+  background-color: blue;
+}
+
+ul li .active p {
+  display: none;
+}
+
+ul li .active .icon {
+  display: flex;
+}
+
+@media screen and (max-width: 1030px) {
+  ul {
+    flex-direction: column;
+  }
+  ul li {
+    flex-direction: row;
+  }
+
+  .progress::after {
+    height: 50px;
+    width: 5px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .one::after {
+    height: 0;
+  }
+  .text {
+    margin-top: 5px;
+  }
+}
