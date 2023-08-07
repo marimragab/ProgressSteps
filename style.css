@@ -16,7 +16,33 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
+  margin-top: 4rem;
+}
+
+.controllers {
+  margin: 2rem auto;
+  /* background-color: blueviolet; */
+  text-align: center;
+}
+
+.controllers button {
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  width: 75px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#previousButton {
+  margin-right: 7px;
+}
+
+#nextButton {
+  background-color: rgb(74, 74, 238);
+  color: whitesmoke;
 }
 
 ul {

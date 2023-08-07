@@ -1,45 +1,36 @@
-const one = document.querySelector(".one");
-const two = document.querySelector(".two");
-const three = document.querySelector(".three");
-const four = document.querySelector(".four");
-const five = document.querySelector(".five");
+const steps = document.querySelectorAll(".progress");
+const previousBtn = document.getElementById("previousButton");
+const nextBtn = document.getElementById("nextButton");
 
-one.onclick = function () {
-  one.classList.add("active");
-  two.classList.remove("active");
-  three.classList.remove("active");
-  four.classList.remove("active");
-  five.classList.remove("active");
-};
+let currentIndex = -1;
 
-two.onclick = function () {
-  one.classList.add("active");
-  two.classList.add("active");
-  three.classList.remove("active");
-  four.classList.remove("active");
-  five.classList.remove("active");
-};
+function updateActiveElements() {
+  steps.forEach((step, index) => {
+    if (index <= currentIndex) {
+      step.classList.add("active");
+    } else {
+      step.classList.remove("active");
+    }
+  });
+}
 
-three.onclick = function () {
-  one.classList.add("active");
-  two.classList.add("active");
-  three.classList.add("active");
-  four.classList.remove("active");
-  five.classList.remove("active");
-};
+function navigateToIndex(index) {
+  if (index >= 0 && index < steps.length) {
+    currentIndex = index;
+    updateActiveElements();
+  }
+}
 
-four.onclick = function () {
-  one.classList.add("active");
-  two.classList.add("active");
-  three.classList.add("active");
-  four.classList.add("active");
-  five.classList.remove("active");
-};
+nextBtn.addEventListener("click", () => {
+  navigateToIndex(currentIndex + 1);
+});
 
-five.onclick = function () {
-  one.classList.add("active");
-  two.classList.add("active");
-  three.classList.add("active");
-  four.classList.add("active");
-  five.classList.add("active");
-};
+previousBtn.addEventListener("click", () => {
+  navigateToIndex(currentIndex - 1);
+});
+
+steps.forEach((step, index) => {
+  step.addEventListener("click", () => {
+    navigateToIndex(index);
+  });
+});
